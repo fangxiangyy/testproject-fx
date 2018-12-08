@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>欢迎你，请先登陆！</title>
+ <script type="text/javascript" src="lx.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lx.css">
+         <style>
+        .a{
+            width: 100px;
+            height: 30px;
+
+        }
+        #b{
+            width: 200px;
+            border: 1px solid red;
+            text-align: right;        /*右对齐*/
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+  <h2>欢迎您加入</h2>
+<form action="/regist1" method="post"onsubmit="return fnLogin()">
+    用户名:<input id="username" name="username" class="a" type="text" align="left"/>
+    <br>
+    密码:<input id="password" name="password" class="a" type="password"/>
+     <div id="error_box"><br></div>
+    <input value="注册" type="submit"/>
+</form>
+</body>
+</div>
+</html>
