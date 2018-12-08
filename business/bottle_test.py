@@ -41,6 +41,7 @@ def op(name = 'world'):
 
 @route('/<path>' )
 def html(path):
+    print(path)
     return static_file(path,root='../register/')
 
 @route('/login1', method="POST")
@@ -62,7 +63,7 @@ def test():
         #                 password=upwd,)
     return ({'username':uname,'password':upwd,'rer':rer} )
 
-run(host='localhost',port=8088)
+run(host='localhost',port=8081)
 
 
 
