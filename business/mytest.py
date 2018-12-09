@@ -5,7 +5,7 @@ import HTMLTestRunner
 
 class Mytest(unittest.TestCase):
     def test_regist_1(self):
-        url = 'http://localhost:8088/regist1'
+        url = 'http://localhost:8081/regist1'
         postData = {'username': 'tt1', 'password': 'tt1'}
         response = requests.post(url, data='username=tt1&password=tt1')
         content = response.json()
@@ -22,7 +22,7 @@ class Mytest(unittest.TestCase):
 
 
 def registparm(username,password):
-    url = 'http://localhost:8088/regist1'
+    url = 'http://localhost:8081/regist1'
     postData = {'username': username, 'password': password}
     response = requests.post(url, data=postData)
     content = response.json()
