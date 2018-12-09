@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>api测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-12-09 22:14:07</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:02.227429</p>
-<p class='attribute'><strong>Status:</strong> Pass 1 Failure 1</p>
+<p class='attribute'><strong>Start Time:</strong> 2018-12-09 22:26:37</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:04.111212</p>
+<p class='attribute'><strong>Status:</strong> Error 2</p>
 
 <p class='description'>测试情况</p>
 </div>
@@ -221,27 +221,164 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
-<tr class='failClass'>
+<tr class='errorClass'>
     <td>business.mytest.Mytest</td>
     <td>2</td>
-    <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>0</td>
+    <td>2</td>
     <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
-<tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_regist_1</div></td>
-    <td colspan='5' align='center'>pass</td>
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_regist_1</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 956, in send
+    self.connect()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x02D0A9B0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02D0A9B0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\business\mytest.py", line 10, in test_regist_1
+    response = requests.post(url, data='username=tt1&amp;password=tt1')
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02D0A9B0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 956, in send
+    self.connect()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x02D0A9B0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02D0A9B0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\business\mytest.py", line 10, in test_regist_1
+    response = requests.post(url, data='username=tt1&amp;password=tt1')
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02D0A9B0&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='ft1.2' class='none'>
-    <td class='failCase'><div class='testcase'>test_regist_2</div></td>
+    <td class='errorCase'><div class='testcase'>test_regist_2</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
     <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
-        fail</a>
+        error</a>
 
     <div id='div_ft1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
@@ -251,21 +388,127 @@ function showOutput(id, name) {
         <pre>
         
 ft1.2: Traceback (most recent call last):
-  File "D:\sourcetest\testproject\business\mytest.py", line 20, in test_regist_2
-    r=self.assertEquals(content['rer']['msg'],'成功')
-AssertionError: '注册成功' != '成功'
-- 注册成功
-? --
-+ 成功
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "D:\sourcetest\testproject\business\mytest.py", line 20, in test_regist_2
-    r=self.assertEquals(content['rer']['msg'],'成功')
-AssertionError: '注册成功' != '成功'
-- 注册成功
-? --
-+ 成功
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 956, in send
+    self.connect()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x02FD2330&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
 
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02FD2330&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\business\mytest.py", line 19, in test_regist_2
+    content = registparm('t1','t1')
+  File "D:\sourcetest\testproject\business\mytest.py", line 27, in registparm
+    response = requests.post(url, data=postData)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02FD2330&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 1016, in _send_output
+    self.send(msg)
+  File "C:\Users\fangxiang\AppData\Local\Programs\Python\Python37-32\lib\http\client.py", line 956, in send
+    self.connect()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connection.py", line 168, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x02FD2330&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "D:\sourcetest\testproject\venv\lib\site-packages\urllib3\util\retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02FD2330&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\sourcetest\testproject\business\mytest.py", line 19, in test_regist_2
+    content = registparm('t1','t1')
+  File "D:\sourcetest\testproject\business\mytest.py", line 27, in registparm
+    response = requests.post(url, data=postData)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\sourcetest\testproject\venv\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='localhost', port=8088): Max retries exceeded with url: /regist1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x02FD2330&gt;: Failed to establish a new connection: [WinError 10061] 由于目标计算机积极拒绝，无法连接。'))
 
 
         </pre>
@@ -278,9 +521,9 @@ AssertionError: '注册成功' != '成功'
 <tr id='total_row'>
     <td>Total</td>
     <td>2</td>
-    <td>1</td>
-    <td>1</td>
     <td>0</td>
+    <td>0</td>
+    <td>2</td>
     <td>&nbsp;</td>
 </tr>
 </table>
